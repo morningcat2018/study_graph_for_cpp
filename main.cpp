@@ -6,6 +6,9 @@
 #include "path.h"
 #include "shortest_path.h"
 
+#include "weight_dense_graph.h"
+#include "weight_read_graph.h"
+
 using namespace std;
 
 void testcase1()
@@ -92,11 +95,19 @@ void testcase5()
 
     // 广度优先算法寻找无权图的最短路径
     ShortestPath<SparseGraph> sp(sg, 0);
-    sp.showPath(6);
+    sp.showPath(4);
+}
+
+void testcase11()
+{
+    string file_name = "graph_data3.txt";
+    WeightDenseGraph<double> wdg(8, false);
+    WeightReadGraph<WeightDenseGraph<double>, double> readGraph(wdg, file_name);
+    wdg.show();
 }
 
 int main()
 {
-    testcase5();
+    testcase11();
     return 0;
 }
