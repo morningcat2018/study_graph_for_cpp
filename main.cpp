@@ -120,6 +120,8 @@ void testcase12()
     wsg.show();
 }
 
+// g++ main.cpp && ./a.out
+// g++ main.cpp -o maincpp.out && ./maincpp.out
 int main()
 {
     testcase12();
