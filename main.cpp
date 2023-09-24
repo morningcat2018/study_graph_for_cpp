@@ -7,7 +7,9 @@
 #include "shortest_path.h"
 
 #include "weight_dense_graph.h"
+#include "weight_sparse_graph.h"
 #include "weight_read_graph.h"
+
 
 using namespace std;
 
@@ -100,14 +102,26 @@ void testcase5()
 
 void testcase11()
 {
+    int V = 8;
+    cout << fixed << setprecision(2);
     string file_name = "graph_data3.txt";
     WeightDenseGraph<double> wdg(8, false);
     WeightReadGraph<WeightDenseGraph<double>, double> readGraph(wdg, file_name);
     wdg.show();
 }
 
+void testcase12()
+{
+    int V = 8;
+    cout << fixed << setprecision(2);
+    string file_name = "graph_data3.txt";
+    WeightSparseGraph<double> wsg(8, false);
+    WeightReadGraph<WeightSparseGraph<double>, double> readGraph(wsg, file_name);
+    wsg.show();
+}
+
 int main()
 {
-    testcase11();
+    testcase12();
     return 0;
 }
