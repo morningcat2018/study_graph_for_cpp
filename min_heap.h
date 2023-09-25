@@ -1,6 +1,7 @@
 //
 // Created by liuyubobobo on 9/13/16.
 // https://github.com/liuyubobobo/Play-with-Algorithms/blob/master/04-Heap/Course%20Code%20(C%2B%2B)/Optional-2-Min-Heap/MinHeap.h
+// https://github.com/liuyubobobo/Play-with-Algorithms/blob/master/08-Minimum-Span-Trees/Course%20Code%20(C%2B%2B)/03-Lazy-Prim/MinHeap.h
 //
 
 #ifndef HEAP_MINHEAP_H
