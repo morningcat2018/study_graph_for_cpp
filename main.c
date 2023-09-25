@@ -7,12 +7,13 @@ void string_demo2();
 void string_demo3();
 void string_demo4();
 void string_demo5();
+void string_demo6();
 void test();
 
 // gcc main.c && ./a.out
 int main()
 {
-    string_demo5();
+    string_demo6();
     return 0;
 }
 
@@ -61,6 +62,19 @@ void string_demo5()
     char s1[32] = "helloworld";
     printf("%s\n", strchr(s1, 'l'));
     printf("%s\n", strrchr(s1, 'l'));
+}
+
+void string_demo6()
+{
+    char s1[] = "helloworld"; // 数组名是指针常量
+    // s1++; 数组名不能修改
+    s1[0]++; // 数组内容可以修改
+    printf("%s\n", s1); // ielloworld
+
+    char *s2 = "helloworld"; // 字符指针存放在栈空间,字符指针指向的内容存放在只读数据区
+    s2++;
+    // s2[0]++; bus error 只读数据区不能修改
+    printf("%s\n", s2); // elloworld
 }
 
 void test()
