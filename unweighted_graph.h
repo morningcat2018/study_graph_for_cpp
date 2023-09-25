@@ -34,6 +34,9 @@ public:
     void show();
     void buildByFile(const string &file_name);
     void bfs(const int v_start, vector<int> &vec);
+    void bfs(const int v_start, const int v_end, vector<int> &vec);
+    void dfs(const int v_start, vector<int> &vec);
+    void dfs_impl(const int v_start, vector<int> &vec, bool *&visited);
 
     class adjIterator
     {
@@ -146,6 +149,89 @@ void UnweightedGraph::bfs(const int v_start, vector<int> &vec)
                 ord[i] = ord[v_top] + 1;
             }
         }
+    }
+    delete[] visited;
+    delete[] from;
+    delete[] ord;
+}
+
+void UnweightedGraph::bfs(const int v_start, const int v_end, vector<int> &vec)
+{
+    assert(v_start >= 0 && v_start < vertices);
+    assert(v_end >= 0 && v_end < vertices);
+
+    bool *visited = new bool[vertices];
+    int *from = new int[vertices];
+    int *ord = new int[vertices];
+    for (int i = 0; i < vertices; i++)
+    {
+        visited[i] = false;
+        from[i] = -1;
+        ord[i] = -1;
+    }
+    // 广度优先遍历
+    queue<int> q;
+    q.push(v_start);
+    visited[v_start] = true;
+    ord[v_start] = 0;
+    while (!q.empty())
+    {
+        int v_top = q.front();
+        q.pop();
+
+        adjIterator adj(*this, v_top);
+        for (int i = adj.begin(); !adj.end(); i = adj.next())
+        {
+            if (!visited[i])
+            {
+                q.push(i);
+                visited[i] = true;
+                from[i] = v_top; // 记录来源 : i 是从 v_top 的遍历而来
+                ord[i] = ord[v_top] + 1;
+            }
+        }
+    }
+
+    // 寻找到达 v_end 的路径
+    stack<int> s;
+    int p = v_end;
+    while (p != -1)
+    {
+        s.push(p);
+        p = from[p];
+    }
+    vec.clear();
+    while (!s.empty())
+    {
+        vec.push_back(s.top());
+        s.pop();
+    }
+    delete[] visited;
+    delete[] from;
+    delete[] ord;
+}
+
+void UnweightedGraph::dfs(const int v_start, vector<int> &vec)
+{
+    assert(v_start >= 0 && v_start < vertices);
+    bool *visited = new bool[vertices];
+    for (int i = 0; i < vertices; i++)
+    {
+        visited[i] = false;
+    }
+    dfs_impl(v_start, vec, visited);
+    delete[] visited;
+}
+
+void UnweightedGraph::dfs_impl(const int v_start, vector<int> &vec, bool *&visited)
+{
+    vec.push_back(v_start);
+    visited[v_start] = true;
+    adjIterator adj(*this, v_start);
+    for (int i = adj.begin(); !adj.end(); i = adj.next())
+    {
+        if (!visited[i])
+            dfs_impl(i, vec, visited);
     }
 }
 
