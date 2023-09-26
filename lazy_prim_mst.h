@@ -80,4 +80,4 @@ LazyPrimMST<Graph, Weight>::LazyPrimMST(Graph &graph) : G(graph), min_heap(MinHe
         mstWeight += mst[i].getW();
 }
 
-#endif // INC_03_LAZY_PRIM_LAZYPRIMMST_H
+#endif // LAZY_PRIM_MST_H
