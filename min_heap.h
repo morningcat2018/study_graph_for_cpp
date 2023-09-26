@@ -4,8 +4,8 @@
 // https://github.com/liuyubobobo/Play-with-Algorithms/blob/master/08-Minimum-Span-Trees/Course%20Code%20(C%2B%2B)/03-Lazy-Prim/MinHeap.h
 //
 
-#ifndef HEAP_MINHEAP_H
-#define HEAP_MINHEAP_H
+#ifndef MIN_HEAP_H
+#define MIN_HEAP_H
 
 #include <algorithm>
 #include <cassert>

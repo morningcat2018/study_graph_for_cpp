@@ -1,11 +1,7 @@
-#include<iostream>
-
 #include "weight_dense_graph.h"
 #include "weight_sparse_graph.h"
 #include "weight_read_graph.h"
 #include "lazy_prim_mst.h"
-
-using namespace std;
 
 // g++ lazy_prim_mst_test.cpp && ./a.out
 int main(){
