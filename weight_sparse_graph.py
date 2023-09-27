@@ -37,7 +37,7 @@ class WeightSparseGraph(object):
     def has_edge(self, v1:int,  v2:int):
         assert (0 <= v1 < self.vertices)
         assert (0 <= v2 < self.vertices)
-        for e in  g[v1]:
+        for e in self.g[v1]:
             if e.getOtherV() == v2:
                 return True
         return False
