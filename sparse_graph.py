@@ -2,7 +2,7 @@ import queue
 
 
 class SparseGraph(object):
-    def __init__(self, v: int, directed=False):
+    def __init__(self, v: int, directed:bool=False):
         self.vertices = v
         self.edges = 0
         self.directed = directed
