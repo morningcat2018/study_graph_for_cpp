@@ -12,7 +12,7 @@ graph["thom"] = []
 graph["jonny"] = []
 
 
-# 使用队列对图进行深度优先遍历
+# 使用队列对图进行广度优先遍历
 def bfs_search(name):
     search_queue = deque()
     search_queue += graph[name]
