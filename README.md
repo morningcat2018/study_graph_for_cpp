@@ -2,13 +2,13 @@
 
 ## 邻接表
 
-![image.png](pic/adjacency_matrix.png)
+![image.png](pic/adjacency_lists.png)
 
 邻接表适合表示`稀疏图`(Sparse Graph)
 
 ## 邻接矩阵
 
-![image.png](pic/adjacency_lists.png)
+![image.png](pic/adjacency_matrix.png)
 
 邻接矩阵适合表示`稠密图`(Dense Graph)
 
